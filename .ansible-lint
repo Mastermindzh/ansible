@@ -1,0 +1,43 @@
+exclude_paths:
+  - .cache/ # implicit unless exclude_paths is defined in config
+  - .github/
+  - inventory
+  - ansible-lint.yml
+  - node_modules/
+
+# Mock modules or roles in order to pass ansible-playbook --syntax-check
+mock_modules:
+  - zuul_return
+  - fake_namespace.fake_collection.fake_module
+  - fake_namespace.fake_collection.fake_module.fake_submodule
+mock_roles:
+  - mocked_role
+  - author.role_name # old standalone galaxy role
+  - fake_namespace.fake_collection.fake_role # role within a collection
+
+# Enable checking of loop variable prefixes in roles
+loop_var_prefix: "{role}_"
+
+use_default_rules: true
+
+# This makes linter to fully ignore rules/tags listed below
+skip_list:
+  - skip_this_tag
+  - git-latest
+  - no-relative-paths
+  - no-changed-when # most scripts are idempotent...
+
+# Any rule that has the 'opt-in' tag will not be loaded unless its 'id' is
+# mentioned in the enable_list:
+enable_list:
+  - no-same-owner
+  - yaml
+
+# This makes the linter display but not fail for rules/tags listed below:
+warn_list:
+  - skip_this_tag
+  - git-latest
+  - experimental
+
+# Offline mode disables installation of requirements.yml
+offline: false

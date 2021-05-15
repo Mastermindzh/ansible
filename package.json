@@ -1,0 +1,37 @@
+{
+  "name": "ansible",
+  "version": "1.0.0",
+  "description": "ansible scripts to manage servers/services",
+  "main": "index.js",
+  "scripts": {
+    "start": "ansible-playbook -K --",
+    "start-pass": "ansible-playbook -Kk --",
+    "lint": "shopt -s globstar && ansible-lint **/*.yml && shopt -u globstar",
+    "test": "ansible \"*\" -m ping --user mastermindzh",
+    "test-pass": "npm run test -- --ask-pass"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mastermindzh/ansible.git"
+  },
+  "author": "Rick van Lieshout <info@rickvanlieshout.com> (http://rickvanlieshout.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mastermindzh/ansible/issues"
+  },
+  "homepage": "https://github.com/Mastermindzh/ansible#readme",
+  "devDependencies": {
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js*,ts*,htm*,md,scss}": [
+      "ansible-lint"
+    ]
+  }
+}

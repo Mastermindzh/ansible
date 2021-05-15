@@ -1,0 +1,7 @@
+- name: update SSH keys from github
+  hosts: "all"
+  tasks:
+    - name: Import from github
+      command: ssh-import-id-gh {{ github_username }}
+      register: output
+      changed_when: output.stdout | length > 0

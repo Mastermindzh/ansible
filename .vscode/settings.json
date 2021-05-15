@@ -1,0 +1,16 @@
+{
+  "cSpell.words": [
+    "mastermindzh",
+    "multiline",
+    "parseable",
+    "pihole",
+    "rulesdir",
+    "timedatectl",
+    "timesyncd",
+    "zuul"
+  ],
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.cache": true
+  }
+}
