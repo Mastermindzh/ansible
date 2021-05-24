@@ -1,5 +1,6 @@
 # This playbook runs a few generic server setup playbooks
 # modify the inventory file to include the new hosts and run this script
 
-- import_playbook: ../update-ssh-keys.yml
+# TODO: replace with host agnostic bash script
+# - import_playbook: ../update-ssh-keys.yml
 - import_playbook: all/timezone.yml

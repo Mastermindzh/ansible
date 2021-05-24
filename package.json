@@ -7,7 +7,7 @@
     "start": "ansible-playbook -K --",
     "start-pass": "ansible-playbook -Kk --",
     "lint": "shopt -s globstar && ansible-lint **/*.yml && shopt -u globstar",
-    "test": "ansible \"*\" -m ping --user mastermindzh",
+    "test": "ansible \"*\" -m ping",
     "test-pass": "npm run test -- --ask-pass"
   },
   "repository": {

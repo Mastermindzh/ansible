@@ -1,5 +1,5 @@
 - name: update SSH keys from github
-  hosts: "all"
+  hosts: "ubuntu"
   tasks:
     - name: Import from github
       command: ssh-import-id-gh {{ github_username }}
